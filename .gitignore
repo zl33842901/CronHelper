@@ -3,3 +3,7 @@
 ################################################################################
 
 /.vs/xLiAd.CronHelper/v16
+/xLiAd.CronHelper/bin/Debug/netstandard2.0
+/xLiAd.CronHelper/obj
+/xLiAd.CronHelper.Test/bin/Debug/netcoreapp3.1
+/xLiAd.CronHelper.Test/obj
