@@ -57,5 +57,8 @@ namespace xLiAd.CronHelper.ValueHolders
             else
                 return base.ToString();
         }
+
+        public override string HolderName => "天";
+        public override string HolderNameSuffix => "日";
     }
 }

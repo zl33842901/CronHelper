@@ -41,5 +41,7 @@ namespace xLiAd.CronHelper.ValueHolders
             result.FromSerialValue(start, end);
             return result;
         }
+        public override string HolderName => "秒";
+        public override string HolderNameSuffix => "秒";
     }
 }

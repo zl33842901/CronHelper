@@ -1,4 +1,6 @@
 ﻿using System;
+using System.ComponentModel;
+using System.Text;
 using xLiAd.CronHelper.ValueHolders;
 
 namespace xLiAd.CronHelper
@@ -12,7 +14,7 @@ namespace xLiAd.CronHelper
         public WeekValueHolder WeekValue { get; private set; }
         public MonthValueHolder MonthValue { get; private set; }
         public YearValueHolder YearValue { get; private set; }
-        private CronHelper(SecondValueHolder secondValue, MinuteValueHolder minuteValue, HourValueHolder hourValue, DayValueHolder dayValue, WeekValueHolder weekValue, MonthValueHolder monthValue, YearValueHolder yearValue)
+        public CronHelper(SecondValueHolder secondValue, MinuteValueHolder minuteValue, HourValueHolder hourValue, DayValueHolder dayValue, WeekValueHolder weekValue, MonthValueHolder monthValue, YearValueHolder yearValue)
         {
             this.SecondValue = secondValue;
             this.MinuteValue = minuteValue;
@@ -140,6 +142,27 @@ namespace xLiAd.CronHelper
             if (this.YearValue.ValueHolderType != ValueHolderTypeEnum.All)
                 result += $" {this.YearValue}";
             return result;
+        }
+
+        public string GetDescription()
+        {
+            StringBuilder sb = new StringBuilder();
+            if (!this.YearValue.AllOrUnknown || !this.MonthValue.AllOrUnknown)
+                sb.Append($"{this.YearValue.GetDescription()}的");
+            if (!this.YearValue.AllOrUnknown || !this.MonthValue.AllOrUnknown || !this.DayValue.AllOrUnknown || !this.WeekValue.AllOrUnknown)
+                sb.Append($"{this.MonthValue.GetDescription()}的");
+            if (!this.YearValue.AllOrUnknown || !this.MonthValue.AllOrUnknown || !this.HourValue.AllOrUnknown || !this.WeekValue.AllOrUnknown)
+                if (this.WeekValue.ValueHolderType != ValueHolderTypeEnum.UnKnown)
+                    sb.Append($"{this.WeekValue.GetDescription()}的");
+            if (!this.YearValue.AllOrUnknown || !this.MonthValue.AllOrUnknown || !this.DayValue.AllOrUnknown || !this.HourValue.AllOrUnknown)
+                if (this.DayValue.ValueHolderType != ValueHolderTypeEnum.UnKnown)
+                    sb.Append($"{this.DayValue.GetDescription()}的");
+            if (this.HourValue.AllOrUnknown)
+                sb.Append($"{this.HourValue.GetDescription()}的");
+            else
+                sb.Append($"{this.HourValue.GetDescription()}");
+            sb.Append($"{this.MinuteValue.GetDescription()}{this.SecondValue.GetDescription()}");
+            return sb.ToString();
         }
     }
 }

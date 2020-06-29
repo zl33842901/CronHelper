@@ -41,5 +41,7 @@ namespace xLiAd.CronHelper.ValueHolders
             result.FromSerialValue(start, end);
             return result;
         }
+        public override string HolderName => "分钟";
+        public override string HolderNameSuffix => "分";
     }
 }

@@ -54,5 +54,8 @@ namespace xLiAd.CronHelper.ValueHolders
             else
                 return base.ToString();
         }
+        public override string HolderName => "周";
+        public override string HolderNameSuffix => "周";
+        public override bool SuffixInFront => true;
     }
 }

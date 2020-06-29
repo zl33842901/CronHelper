@@ -41,5 +41,7 @@ namespace xLiAd.CronHelper.ValueHolders
             result.FromSerialValue(start, end);
             return result;
         }
+        public override string HolderName => "月";
+        public override string HolderNameSuffix => "月";
     }
 }
