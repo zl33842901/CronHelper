@@ -7,7 +7,7 @@
 /xLiAd.CronHelper/obj
 /xLiAd.CronHelper.Test/bin/Debug/netcoreapp3.1
 /xLiAd.CronHelper.Test/obj
-/.vs/xLiAd.CronHelper
+/.vs
 /xLiAd.CronHelper/发布到NUGET.bat
 /xLiAd.CronHelper/bin/Release/netstandard2.0
 /xLiAd.CronHelper/nupkgsSymb
